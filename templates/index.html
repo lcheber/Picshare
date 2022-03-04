@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+    </head>
+    <body>
+        {% if title%}
+            {{ title }}
+        {% else %}
+            <h1>My pictures</h1>
+        {% endif %}
+        <h2>{{ subtitle }}</h2>
+        {% for picture in all_pictures %}
+            <img src="{{ config['UPLOAD_FOLDER'] }}/{{ picture[0] }}" width=250>
+        {% endfor %}
+        <form method=post enctype=multipart/form-data>
+            <input type=file name=file>
+            <input type=submit value=Upload>
+        </form>
+        <ul>
+            {% for item in list_items %}
+                <li>{{ item }}</li>
+            {% endfor %}
+        </ul>
+    </body>
+</html>
